@@ -23,6 +23,7 @@ jobs:
         run: |
           pip install -r requirements.txt
           pip install stream-chat boto3 firebase-admin
+          pip install --upgrade botocore
 
       - name: Set up Environment Variables
         env:
