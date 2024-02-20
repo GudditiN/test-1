@@ -4,12 +4,11 @@ from datetime import datetime
 from firebase_admin import credentials, initialize_app, firestore
 from stream_chat import StreamChat
 import csv
+import json
 
-# Read Firebase credentials JSON path from environment variable
-firebase_credentials_json = os.getenv("FIREBASE_CREDENTIALS_JSON")
-
-if firebase_credentials_json is None:
-    raise ValueError("Firebase credentials JSON not found in environment variables")
+# Read Firebase credentials JSON from file
+with open("firebase_credentials.json", "r") as f:
+    firebase_credentials_json = json.load(f)
 
 # Initialize Firebase Admin with the credentials
 cred = credentials.Certificate(firebase_credentials_json)
